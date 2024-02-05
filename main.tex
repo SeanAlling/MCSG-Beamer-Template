@@ -1,0 +1,76 @@
+\documentclass[aspectratio=169]{beamer}
+
+\usepackage{./mcsg}
+
+\setbeameroption{show notes}
+%\setbeameroption{hide notes}
+%\setbeameroption{show only notes}
+
+%Information to be included in the title page:
+\title[BOTTOM PAGE TITLE \hspace{20mm}\insertframenumber/\inserttotalframenumber]{
+    MCSG TEMPLATE
+}
+
+\author{JOHN MAY DOE}
+
+\date{\today}
+
+\begin{document}
+
+%%%%%%%%%%%%%%%%
+% Title Frame
+%%%%%%%%%%%%%%%%
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\logo{} % Logo only on first page
+
+\begin{frame}{Columns Test}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+           \begin{wideitemize}
+                \item first
+                \item second
+                \item third
+            \end{wideitemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}  %%<--- here
+            \begin{wideenumerate}
+                \item first
+                \item second
+                \item third
+    \end{wideenumerate}
+        \end{column}
+    \end{columns}
+    \note{Test Note}
+\end{frame}
+
+
+\begin{frame}{Image Test 1}
+    \includegraphics{example-image-a}
+\end{frame}
+
+\begin{frame}{Image Test 2}
+    \fitimage{example-image-b}
+\end{frame}
+
+
+\begin{frame}{Columns Test}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+           \begin{wideitemize}
+                \item first
+                \item second
+                \item third
+            \end{wideitemize}
+        \end{column}
+        \begin{column}{0.5\textwidth}  %%<--- here
+            \begin{center}
+                \fitimage{example-image-c}
+             \end{center}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,108 @@
+\RequirePackage{caption}
+\RequirePackage{multirow}
+\RequirePackage{subcaption}
+\RequirePackage{graphicx} % Load graphics
+\RequirePackage{booktabs} % Nice tables
+\RequirePackage{dcolumn} % Booktabs column spacing
+\RequirePackage{threeparttable} % Align column caption, table, and notes
+\RequirePackage{adjustbox} % Shrink stuff
+\RequirePackage[skins]{tcolorbox}
+\RequirePackage{pgf} % for logo
+\RequirePackage[final]{microtype}
+\RequirePackage[style=ieee,dateabbrev=false]{biblatex}
+
+
+
+
+\newtcolorbox{note box}{enhanced,
+	height=\paperheight,
+	frame hidden,
+	boxrule=0mm,
+	colback=bg, % note background color defined by beamer
+	arc=0mm,
+	grow to left by=1cm,
+	grow to right by=1cm,
+}
+
+\setbeamercolor{bibliography entry author}{fg=black}
+\setbeamercolor{bibliography entry title}{fg=black}
+\setbeamercolor{bibliography entry location}{fg=black}
+\setbeamercolor{bibliography entry note}{fg=black}
+
+\renewcommand*{\bibfont}{\tiny}
+
+
+\mode<presentation> {
+    \usetheme{Luebeck}
+    \usecolortheme{whale}
+    \beamertemplatenavigationsymbolsempty
+    \setbeamertemplate{headline}{}
+}
+
+
+
+
+\institute
+{
+    University of California at Davis \\
+    Micropower Circuits and Systems Group
+}
+
+\date{}
+
+\logo{
+    \pgfputat{\pgfxy(0.0,6.75)}{\pgfbox[right,base]
+        {\includegraphics[height=1.5cm,keepaspectratio]{Template/UCD}
+            \hspace{\dimexpr\paperwidth-5cm-5pt}
+            \includegraphics[height=1cm,keepaspectratio]{Template/MCSG_Color}}}
+}
+
+\AtBeginSection[]
+{
+    \begin{frame}
+        \frametitle{Table of Contents}
+        \tableofcontents[currentsection, hideothersubsections, sectionstyle=show/hide]
+    \end{frame}
+}
+
+\setbeamertemplate{note page}{%
+	\begin{note box}
+		\insertnote
+	\end{note box}
+}
+
+
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor \hspace*{1em} Micro Power Circuits and Systems Group
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertshorttitle\hspace*{3em}
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}
+
+\newenvironment{wideitemize}{\itemize\addtolength{\itemsep}{10pt}}{\enditemize}
+\newenvironment{wideenumerate}{\enumerate\addtolength{\itemsep}{10pt}}{\endenumerate}
+
+\makeatletter
+\newcommand{\fitimage}[2][\@nil]{
+  \begin{figure}
+    \begin{adjustbox}{width=0.9\textwidth, totalheight=\textheight-2\baselineskip-2\baselineskip,keepaspectratio}
+      \includegraphics{#2}
+    \end{adjustbox}
+    \def\tmp{#1}%
+   \ifx\tmp\@nnil
+      \else
+      \caption{#1}
+    \fi
+  \end{figure}
+}
+
+
+
+
+\mode<all>
